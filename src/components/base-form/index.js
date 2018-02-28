@@ -5,12 +5,12 @@ import {
   Input,
   InputNumber,
   Form,
-  Button,
-  Select
+  Button
 } from 'antd';
+import SYSelect from '../sy-select';
 import _ from 'lodash';
 import classnames from 'classnames';
-import SearchInput from './SearchInput';
+// import SearchInput from './SearchInput';
 const {RangePicker} = DatePicker;
 const FormItem = Form.Item;
 
@@ -23,22 +23,21 @@ class BaseForm extends Component {
   }
 
   createFormItemWithLabel(element) {
-    const ele = this.createFormItem(element);
-    const {placeholder, label} = element;
-    const labelText = label ? label : placeholder;
-    let item;
-    item = element.type === 'hidden' ? ele :
-      (
-        <div>
-          <div className="filter-label">
-            <label>{labelText}</label>
-          </div>
-          {ele}
-        </div>
-      );
-    return <FormItem key={element.id} className={ element.type === 'hidden' ? 'list-filter-hidden-item': ''}> {item} </FormItem>;
+    const item = this.createFormItem(element);
+    const {label, formItemConfig} = element;
+    if('formItemConfig' in element) delete element.formItemConfig;
+    return (
+      <FormItem 
+        key={element.id} 
+        className={ element.type === 'hidden' ? 'no-display': ''}
+        label={label}
+        {...formItemConfig}
+      > 
+        {item} 
+      </FormItem>
+    );
   }
-
+  
   createFormItem = (element) => {
     const {getFieldDecorator} = this.props.form;
     let item;
@@ -50,22 +49,21 @@ class BaseForm extends Component {
       value,
       defaultValue,
       onChange,
+      fieldConfig,
       ...otherProps
     } = element;
 
-    let defaultPlaceholder = this.props.defaultPlaceholder;
+    let defaultPlaceholder = `${this.props.defaultPlaceholder}${label}`; 
     placeholder = placeholder ? placeholder : defaultPlaceholder;
-
-    const commonProps = {
-      placeholder
+    
+    fieldConfig = {
+      initialValue: defaultValue || value,
+      onChange: onChange,
+      ...fieldConfig
     };
-    let fieldDecoratorCfg = {};
-
-    fieldDecoratorCfg.initialValue = defaultValue || value;
-    fieldDecoratorCfg.onChange = onChange;
-
-    const mergeProps = _.merge(commonProps,otherProps)
-    switch (element.type) {
+    const w100 = {width: '100%'};
+    const mergeProps = _.merge({placeholder},otherProps);
+    switch (type) {
       case 'hidden':
         item = (
           <Input type='hidden'
@@ -82,43 +80,43 @@ class BaseForm extends Component {
         break;
       case 'select':
         item = (
-          <Select
+          <SYSelect
             {...mergeProps}
           />
         );
         break;
-      case 'city-selector':
-        item = (
-          <CitySelector
-            {...mergeProps}
-          />
-        );
-        break;
-      case 'search-input':
-        item = (
-          <SearchInput
-            {...mergeProps}
-          />
-        );
-        break;
+      // case 'city-selector':
+      //   item = (
+      //     <CitySelector
+      //       {...mergeProps}
+      //     />
+      //   );
+      //   break;
+      // case 'search-input':
+      //   item = (
+      //     <SearchInput
+      //       {...mergeProps}
+      //     />
+      //   );
+      //   break;
       case 'date-range':
         item = <RangePicker
-          style={{width: '100%'}}
-          {...mergeProps}
+          style={w100}
           size='large'
-        />
+          {...mergeProps}
+        />;
         break;
       case 'date':
       case 'date-picker':
         item = <DatePicker
-          style={{width: '100%'}}
-          {...mergeProps}
+          style={w100}
           size='large'
-        />
+          {...mergeProps}
+        />;
         break;
       case 'number':
         item = <InputNumber
-          style={{width: '100%'}}
+          style={w100}
           {...mergeProps}
         />
         break;
@@ -128,12 +126,12 @@ class BaseForm extends Component {
         />);
         break;
     }
-    return getFieldDecorator(id, fieldDecoratorCfg)(item);
+    return getFieldDecorator(id, fieldConfig)(item);
   }
 
   createFormElements(data = []) {
     let elements = [];
-    data.forEach((item, i) => {
+    data.forEach((item) => {
       elements.push(
         this.createFormItemWithLabel(item)
       );
@@ -152,19 +150,16 @@ class BaseForm extends Component {
       );
     });
 
-    return <div className='filter-buttons-wrapper'>{elements}</div>;
-  }
-
-  getFormatFieldsValue = () => {
-    const result = this.props.form.getFieldsValue();
-    return result;
+    return <div className='buttons-wrapper'>{elements}</div>;
   }
 
   handleSearch = (e) => {
     e.preventDefault();
-    let result = this.getFormatFieldsValue();
+
+    let result = this.props.form.getFieldsValue();
     const {onOk} = this.props;
-    onOk && onOk(result);
+
+    onOk && onOk(_.omitBy(result, _.isUndefined));
   }
 
   toggle = () => {
@@ -174,10 +169,12 @@ class BaseForm extends Component {
 
   handleReset = (e) => {
     e.preventDefault();
-    this.props.form.resetFields();
-    let result = {};
+
+    let result = this.props.form.getFieldsValue();
     const {onReset} = this.props;
-    onReset && onReset(result);
+
+    this.props.form.resetFields();
+    onReset && onReset(_.omitBy(result, _.isUndefined));
   }
 
   render() {
@@ -191,7 +188,7 @@ class BaseForm extends Component {
         onReset={this.handleReset}
         className={classnames('base-form', className)}
       >
-        <div className={}>
+        <div>
           {formElements}
           <div className={
             classnames(
@@ -200,9 +197,8 @@ class BaseForm extends Component {
           }>{buttonElements}</div>
         </div>
       </Form>
-    )
+    );
   }
-
 }
 
 BaseForm.propTypes = {
@@ -224,14 +220,12 @@ BaseForm.defaultProps = {
       text: '重置',
       htmlType: 'reset',
       className: 'reset-button',
-      type: 'default',
-      shape: 'circle'
+      type: 'default'
     },{
       text: '查询',
       htmlType: 'submit',
       className: 'ok-button',
-      type: 'primary',
-      shape: 'circle'
+      type: 'primary'
     }
   ]
 };
