@@ -3,11 +3,33 @@ import {
   Select
 } from 'antd';
 import PropTypes from 'prop-types';
-const { Option } = Select;
+const { Option, OptGroup } = Select;
 
 class SYSelect extends Component {
-  createOptions = (options) => {
-    let optionsItem = options && options.map((item,index) => <Option key={index} disabled={item.disabled} value={item.value}>{item.label}</Option>);
+  createOption(item,index){
+    return (
+      <Option 
+        key={index} 
+        disabled={item.disabled} 
+        value={item.value}
+      >
+        {item.label}
+      </Option>
+    );
+  }
+  createAllOptions = (options) => {
+    let optionsItem = options && options.map((item,index) => {
+      const {children} = item;
+      if(children && children.length){
+        return (
+          <OptGroup label={item.label}>
+            {children.map((child,i) => this.createOption(child,i))}
+          </OptGroup>
+        );
+      }else{
+        return this.createOption(item,index);
+      }
+    });
     return optionsItem;
   }
   
@@ -24,14 +46,21 @@ class SYSelect extends Component {
       <Select
         {...otherProps}
       >
-        {this.createOptions(options)}
+        {this.createAllOptions(options)}
       </Select>
     );
   }
 }
 
 SYSelect.propTypes = {
-  options: PropTypes.array,
+  options: PropTypes.arrayOf(PropTypes.shape({
+    label: PropTypes.string,
+    value: PropTypes.oneOfType([PropTypes.string,PropTypes.number]),
+    children: PropTypes.arrayOf(PropTypes.shape({
+      label: PropTypes.string,
+      value: PropTypes.oneOfType([PropTypes.string,PropTypes.number])
+    }))
+  })),
   className: PropTypes.string,
-}
+};
 export default SYSelect;

@@ -8,7 +8,7 @@ module.exports = function override(config, env) {
       libraryDirectory: 'es', 
       style: 'css' 
     }], config);
-  
+
   config = injectBabelPlugin(
     ['import', { 
       libraryName: 'antd', 
@@ -17,8 +17,9 @@ module.exports = function override(config, env) {
 
   config = rewireLess.withLoaderOptions({
     modifyVars: { 
-      '@primary-color': '#E4C37E',
+      '@primary-color': '#E5C26E',
       '@font-size-base': '13px',
+      '@btn-border-radius-base': '@btn-height-base/2'
     },
   })(config, env);
 

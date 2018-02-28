@@ -24,7 +24,8 @@ class BaseForm extends Component {
 
   createFormItemWithLabel(element) {
     const item = this.createFormItem(element);
-    const {label, formItemConfig} = element;
+    let {label, placeholder, formItemConfig} = element;
+    label = label ? label : placeholder;
     if('formItemConfig' in element) delete element.formItemConfig;
     return (
       <FormItem 

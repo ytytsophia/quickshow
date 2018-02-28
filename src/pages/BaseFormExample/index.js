@@ -28,6 +28,30 @@ class BaseFormExample extends Component {
         defaultValue: '15618971727'
       },
       {
+        id: 'city',
+        placeholder: '城市',
+        type: 'select',
+        'showSearch': true,
+        options: [{
+          label: '北京',
+          value: 0,
+          children: [{
+            label: '北京市',
+            value: 11
+          }]
+        },{
+          label: '江苏省',
+          value: 1,
+          children: [{
+            label: '南京市',
+            value: 12
+          },{
+            label: '扬州市',
+            value: 13
+          }]
+        }]
+      },
+      {
         'id': 'bisinessIds',
         'placeholder': '已开业务',
         'type': 'select',
@@ -69,7 +93,7 @@ class BaseFormExample extends Component {
           onOk={this.onOk}
         />
       </div>
-    )
+    );
   }
 }
 export default BaseFormExample;
