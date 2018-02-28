@@ -118,7 +118,7 @@ class BaseForm extends Component {
         item = <InputNumber
           style={w100}
           {...mergeProps}
-        />
+        />;
         break;
       default :
         item = (<Input
