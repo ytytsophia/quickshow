@@ -5,7 +5,7 @@ import {
 import PropTypes from 'prop-types';
 const { Option, OptGroup } = Select;
 
-class SYSelect extends Component {
+class SmartSelect extends Component {
   createOption(item,index){
     return (
       <Option 
@@ -52,7 +52,7 @@ class SYSelect extends Component {
   }
 }
 
-SYSelect.propTypes = {
+SmartSelect.propTypes = {
   options: PropTypes.arrayOf(PropTypes.shape({
     label: PropTypes.string,
     value: PropTypes.oneOfType([PropTypes.string,PropTypes.number]),
@@ -63,4 +63,4 @@ SYSelect.propTypes = {
   })),
   className: PropTypes.string,
 };
-export default SYSelect;
+export default SmartSelect;

@@ -17,9 +17,9 @@
     lodash "^4.2.0"
     to-fast-properties "^2.0.0"
 
-"@storybook/addon-actions@^3.3.12":
-  version "3.3.12"
-  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@storybook/addon-actions/download/@storybook/addon-actions-3.3.12.tgz#1bd2668918a62f32c0907af14946cdd0c6be66f5"
+"@storybook/addon-actions@^3.3.14":
+  version "3.3.14"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@storybook/addon-actions/download/@storybook/addon-actions-3.3.14.tgz#b78e707b32130ad16ea8a0af62a66f23b5df502b"
   dependencies:
     deep-equal "^1.0.1"
     global "^4.3.2"
@@ -28,37 +28,37 @@
     react-inspector "^2.2.2"
     uuid "^3.1.0"
 
-"@storybook/addon-links@^3.3.12":
-  version "3.3.12"
-  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@storybook/addon-links/download/@storybook/addon-links-3.3.12.tgz#e1bb6e207506a45bea9e5f64cd78c045327412b7"
+"@storybook/addon-links@^3.3.14":
+  version "3.3.14"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@storybook/addon-links/download/@storybook/addon-links-3.3.14.tgz#1de63e9b3819927fbb2f963fdabc65f86fde33cc"
   dependencies:
-    "@storybook/components" "^3.3.12"
+    "@storybook/components" "^3.3.14"
     global "^4.3.2"
     prop-types "^15.5.10"
 
-"@storybook/addons@^3.3.12":
-  version "3.3.12"
-  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@storybook/addons/download/@storybook/addons-3.3.12.tgz#682927b5ac4baad796922eec505a7e956a3f79d9"
+"@storybook/addons@^3.3.14":
+  version "3.3.14"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@storybook/addons/download/@storybook/addons-3.3.14.tgz#20a65085b834898ea6154b9061ebc65a74c6cb33"
 
-"@storybook/channel-postmessage@^3.3.12":
-  version "3.3.12"
-  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@storybook/channel-postmessage/download/@storybook/channel-postmessage-3.3.12.tgz#a4e7ac32ff84d2cc41bf3a5f30608ce5f82bcf82"
+"@storybook/channel-postmessage@^3.3.14":
+  version "3.3.14"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@storybook/channel-postmessage/download/@storybook/channel-postmessage-3.3.14.tgz#324fe89323b10fe300c746b452ec0dc7e2f5d72c"
   dependencies:
-    "@storybook/channels" "^3.3.12"
+    "@storybook/channels" "^3.3.14"
     global "^4.3.2"
     json-stringify-safe "^5.0.1"
 
-"@storybook/channels@^3.3.12":
-  version "3.3.12"
-  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@storybook/channels/download/@storybook/channels-3.3.12.tgz#aa4106888971f9e689511093b0e6f2b569973a09"
+"@storybook/channels@^3.3.14":
+  version "3.3.14"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@storybook/channels/download/@storybook/channels-3.3.14.tgz#b43f767f7775bb17cec5ab0696f918a475043df9"
 
-"@storybook/client-logger@^3.3.12":
-  version "3.3.12"
-  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@storybook/client-logger/download/@storybook/client-logger-3.3.12.tgz#5307eba4d63d6dc54676e14a40bc0d4be3439d92"
+"@storybook/client-logger@^3.3.14":
+  version "3.3.14"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@storybook/client-logger/download/@storybook/client-logger-3.3.14.tgz#03d5bc6036a8e82351a349bec11a8c89f06c901e"
 
-"@storybook/components@^3.3.12":
-  version "3.3.12"
-  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@storybook/components/download/@storybook/components-3.3.12.tgz#e2571ca7150488f4ac3fa1cd1f70fa91ce38da8b"
+"@storybook/components@^3.3.14":
+  version "3.3.14"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@storybook/components/download/@storybook/components-3.3.14.tgz#84ffcb5ac6a7d40e145402ed0d1521e6ad1b2d4d"
   dependencies:
     glamor "^2.20.40"
     glamorous "^4.11.2"
@@ -72,12 +72,19 @@
     "@storybook/react-simple-di" "^1.2.1"
     babel-runtime "6.x.x"
 
-"@storybook/node-logger@^3.3.12":
-  version "3.3.12"
-  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@storybook/node-logger/download/@storybook/node-logger-3.3.12.tgz#97251cfa46be4a0d856b394f5dbbf32d6ab2f2cd"
+"@storybook/node-logger@^3.3.14":
+  version "3.3.14"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@storybook/node-logger/download/@storybook/node-logger-3.3.14.tgz#c769a0763053ff6d32d52d29172fb61acab1122f"
   dependencies:
     chalk "^2.3.0"
     npmlog "^4.1.2"
+
+"@storybook/podda@^1.2.3":
+  version "1.2.3"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@storybook/podda/download/@storybook/podda-1.2.3.tgz#53c4a1a3f8c7bbd5755dff5c34576fd1af9d38ba"
+  dependencies:
+    babel-runtime "^6.11.6"
+    immutable "^3.8.1"
 
 "@storybook/react-komposer@^2.0.1", "@storybook/react-komposer@^2.0.3":
   version "2.0.3"
@@ -104,17 +111,17 @@
   dependencies:
     babel-runtime "^6.5.0"
 
-"@storybook/react@^3.3.12":
-  version "3.3.12"
-  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@storybook/react/download/@storybook/react-3.3.12.tgz#f1f6587499e0aaa7b14be911a53d09a61e219ccd"
+"@storybook/react@^3.3.14":
+  version "3.3.14"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@storybook/react/download/@storybook/react-3.3.14.tgz#89a11e786846b7bcbca8a2baf8972733b3609ab2"
   dependencies:
-    "@storybook/addon-actions" "^3.3.12"
-    "@storybook/addon-links" "^3.3.12"
-    "@storybook/addons" "^3.3.12"
-    "@storybook/channel-postmessage" "^3.3.12"
-    "@storybook/client-logger" "^3.3.12"
-    "@storybook/node-logger" "^3.3.12"
-    "@storybook/ui" "^3.3.12"
+    "@storybook/addon-actions" "^3.3.14"
+    "@storybook/addon-links" "^3.3.14"
+    "@storybook/addons" "^3.3.14"
+    "@storybook/channel-postmessage" "^3.3.14"
+    "@storybook/client-logger" "^3.3.14"
+    "@storybook/node-logger" "^3.3.14"
+    "@storybook/ui" "^3.3.14"
     airbnb-js-shims "^1.4.0"
     autoprefixer "^7.2.3"
     babel-loader "^7.1.2"
@@ -166,12 +173,13 @@
     webpack-dev-middleware "^1.12.2"
     webpack-hot-middleware "^2.21.0"
 
-"@storybook/ui@^3.3.12":
-  version "3.3.12"
-  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@storybook/ui/download/@storybook/ui-3.3.12.tgz#b0a9cd83423c4d6cded0a0340fc4f48d5bdf3bc0"
+"@storybook/ui@^3.3.14":
+  version "3.3.14"
+  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/@storybook/ui/download/@storybook/ui-3.3.14.tgz#85fdbb08d77edf79e8d4a3dee42673157e4b132d"
   dependencies:
-    "@storybook/components" "^3.3.12"
+    "@storybook/components" "^3.3.14"
     "@storybook/mantra-core" "^1.7.2"
+    "@storybook/podda" "^1.2.3"
     "@storybook/react-komposer" "^2.0.3"
     babel-runtime "^6.26.0"
     deep-equal "^1.0.1"
@@ -183,7 +191,6 @@
     lodash.debounce "^4.0.8"
     lodash.pick "^4.4.0"
     lodash.sortby "^4.7.0"
-    podda "^1.2.2"
     prop-types "^15.6.0"
     qs "^6.5.1"
     react-fuzzy "^0.5.1"
@@ -5878,13 +5885,6 @@ pluralize@^7.0.0:
   version "7.0.0"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/pluralize/download/pluralize-7.0.0.tgz#298b89df8b93b0221dbf421ad2b1b1ea23fc6777"
 
-podda@^1.2.2:
-  version "1.2.2"
-  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/podda/download/podda-1.2.2.tgz#15b0edbd334ade145813343f5ecf9c10a71cf500"
-  dependencies:
-    babel-runtime "^6.11.6"
-    immutable "^3.8.1"
-
 portfinder@^1.0.9:
   version "1.0.13"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/portfinder/download/portfinder-1.0.13.tgz#bb32ecd87c27104ae6ee44b5a3ccbf0ebb1aede9"
@@ -5954,15 +5954,9 @@ postcss-filter-plugins@^2.0.0:
     postcss "^5.0.4"
     uniqid "^4.0.0"
 
-postcss-flexbugs-fixes@3.2.0:
+postcss-flexbugs-fixes@3.2.0, postcss-flexbugs-fixes@^3.2.0:
   version "3.2.0"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/postcss-flexbugs-fixes/download/postcss-flexbugs-fixes-3.2.0.tgz#9b8b932c53f9cf13ba0f61875303e447c33dcc51"
-  dependencies:
-    postcss "^6.0.1"
-
-postcss-flexbugs-fixes@^3.2.0:
-  version "3.3.0"
-  resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/postcss-flexbugs-fixes/download/postcss-flexbugs-fixes-3.3.0.tgz#e00849b536063749da50a0d410ba5d9ee65e27b8"
   dependencies:
     postcss "^6.0.1"
 
@@ -7190,7 +7184,7 @@ repeating@^2.0.0:
   dependencies:
     is-finite "^1.0.0"
 
-request@2.81.0:
+request@2.81.0, request@^2.79.0:
   version "2.81.0"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/request/download/request-2.81.0.tgz#c6928946a0e06c5f8d6f8a9333469ffda46298a0"
   dependencies:
@@ -7217,7 +7211,7 @@ request@2.81.0:
     tunnel-agent "^0.6.0"
     uuid "^3.0.0"
 
-request@^2.79.0, request@^2.83.0:
+request@^2.83.0:
   version "2.83.0"
   resolved "http://artifactory.intra.xiaojukeji.com:80/artifactory/api/npm/npm/request/download/request-2.83.0.tgz#ca0b65da02ed62935887808e6f510381034e3356"
   dependencies:

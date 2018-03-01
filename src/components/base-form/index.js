@@ -7,10 +7,11 @@ import {
   Form,
   Button
 } from 'antd';
-import SYSelect from '../sy-select';
 import _ from 'lodash';
 import classnames from 'classnames';
-// import SearchInput from './SearchInput';
+import SmartSelect from '../smart-select';
+import SearchInput from '../search-input';
+
 const {RangePicker} = DatePicker;
 const FormItem = Form.Item;
 
@@ -81,7 +82,7 @@ class BaseForm extends Component {
         break;
       case 'select':
         item = (
-          <SYSelect
+          <SmartSelect
             {...mergeProps}
           />
         );
@@ -93,13 +94,13 @@ class BaseForm extends Component {
       //     />
       //   );
       //   break;
-      // case 'search-input':
-      //   item = (
-      //     <SearchInput
-      //       {...mergeProps}
-      //     />
-      //   );
-      //   break;
+      case 'search-input':
+        item = (
+          <SearchInput
+            {...mergeProps}
+          />
+        );
+        break;
       case 'date-range':
         item = <RangePicker
           style={w100}
