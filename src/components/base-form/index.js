@@ -4,15 +4,18 @@ import {
   DatePicker,
   Input,
   InputNumber,
+  Switch,
   Form,
   Button
 } from 'antd';
+
 import _ from 'lodash';
 import classnames from 'classnames';
 import SmartSelect from '../smart-select';
 import SearchInput from '../search-input';
 
-const {RangePicker} = DatePicker;
+const { RangePicker } = DatePicker;
+const { TextArea } = Input;
 const FormItem = Form.Item;
 
 class BaseForm extends Component {
@@ -87,6 +90,11 @@ class BaseForm extends Component {
           />
         );
         break;
+      case 'switch':
+        item = (
+          <Switch />
+        );
+        break;
       // case 'city-selector':
       //   item = (
       //     <CitySelector
@@ -119,6 +127,11 @@ class BaseForm extends Component {
       case 'number':
         item = <InputNumber
           style={w100}
+          {...mergeProps}
+        />;
+        break;
+      case 'textarea':
+        item = <TextArea 
           {...mergeProps}
         />;
         break;
@@ -155,7 +168,7 @@ class BaseForm extends Component {
     return <div className='buttons-wrapper'>{elements}</div>;
   }
 
-  handleSearch = (e) => {
+  handleSubmit = (e) => {
     e.preventDefault();
 
     let result = this.props.form.getFieldsValue();
@@ -186,7 +199,7 @@ class BaseForm extends Component {
 
     return (
       <Form 
-        onSubmit={this.handleSearch}
+        onSubmit={this.handleSubmit}
         onReset={this.handleReset}
         className={classnames('base-form', className)}
       >

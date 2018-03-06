@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { Select } from 'antd';
+import { Select,Spin } from 'antd';
 import PropTypes from 'prop-types';
 const Option = Select.Option;
 
@@ -46,7 +46,10 @@ class SearchInput extends Component {
     const {onChange, fetchService, searchName} = this.props;
     this.setState({ value });
     if(value !== ''){
-      fetch(value, fetchService, searchName, data => this.setState({ data }));
+      this.setState({
+        fetching: true
+      });
+      fetch(value, fetchService, searchName, data => this.setState({ data, fetching:false }));
     }
     if(onChange) {
       onChange(value);
@@ -54,7 +57,7 @@ class SearchInput extends Component {
   }
   render() {
     const options = this.state.data.map(d => <Option key={d.value}>{d.text}</Option>);
-    const {value} = this.state;
+    const {value,fetching} = this.state;
     const {
       style,
       placeholder
@@ -64,6 +67,7 @@ class SearchInput extends Component {
         mode="combobox"
         value={value}
         style={style}
+        notFoundContent={fetching ? <Spin size="small" /> : null}
         placeholder={placeholder}
         defaultActiveFirstOption={false}
         showArrow={false}

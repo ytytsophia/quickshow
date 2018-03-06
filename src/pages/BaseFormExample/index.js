@@ -28,6 +28,12 @@ class BaseFormExample extends Component {
         defaultValue: '15618971727'
       },
       {
+        'id': 'isEnabled',
+        'placeholder': '是否生效',
+        'type': 'switch',
+        defaultValue: false
+      },
+      {
         id: 'city',
         placeholder: '城市',
         type: 'select',
