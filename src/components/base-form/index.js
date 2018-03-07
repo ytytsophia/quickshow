@@ -95,13 +95,6 @@ class BaseForm extends Component {
           <Switch />
         );
         break;
-      // case 'city-selector':
-      //   item = (
-      //     <CitySelector
-      //       {...mergeProps}
-      //     />
-      //   );
-      //   break;
       case 'search-input':
         item = (
           <SearchInput
@@ -163,9 +156,11 @@ class BaseForm extends Component {
     });
 
     return (
-      <div className='buttons-wrapper'>
+      <FormItem
+        {...buttonLayout}
+        className='buttons-wrapper'>
         {buttons}
-      </div>
+      </FormItem>
     );
   }
 
@@ -194,7 +189,14 @@ class BaseForm extends Component {
   }
 
   render() {
-    const {data, buttonData, buttonLayout, className,buttonsClassName} = this.props;
+    const {
+      data, 
+      buttonData, 
+      buttonLayout, 
+      className,
+      buttonsClassName,
+      formConfig
+    } = this.props;
     const formElements = this.createFormElements(data);
     const buttonElements = this.createButtonElements(buttonData,buttonLayout);
 
@@ -203,6 +205,7 @@ class BaseForm extends Component {
         onSubmit={this.handleSubmit}
         onReset={this.handleReset}
         className={classnames('base-form', className)}
+        {...formConfig}
       >
         <div>
           {formElements}
@@ -220,16 +223,26 @@ BaseForm.propTypes = {
   data: PropTypes.array,
   onOk: PropTypes.func,
   onReset: PropTypes.func,
+  grid: PropTypes.object,
   buttonData: PropTypes.array,
   defaultPlaceholder: PropTypes.string,
   defaultSelectPlaceholder: PropTypes.string,
-  buttonsClassName: PropTypes.string
+  buttonsClassName: PropTypes.string,
+  formConfig: PropTypes.object
 };
 BaseForm.defaultProps = {
   className: '',
   data: [],
   defaultPlaceholder: '请输入',
   defaultSelectPlaceholder: '请选择',
+  grid: {
+    row: {
+      
+    },
+    col: {
+
+    }
+  },
   buttonData: [
     {
       text: '重置',

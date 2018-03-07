@@ -91,17 +91,18 @@ const buttonData = [];
 const pageData = {
   data,
   buttonData
-}
+};
+
 storiesOf('BaseForm', module)
-  .add('no-button', () => 
-    <BaseForm {...pageData}/>
-  )
   .add('default', () => 
     <BaseForm 
       data={data} 
       onOk={action('clicked OK')} 
       onReset={action('reseted')}
     />
+  )
+  .add('no-button', () => 
+    <BaseForm {...pageData}/>
   )
   .add('wrapped with card', () => 
     <Card>
@@ -111,5 +112,63 @@ storiesOf('BaseForm', module)
         onReset={action('reseted')}
     />
     </Card>
+  )
+  .add('align', () => {
+    const alignData = data.map((item) => {
+      return {
+        ...item,
+        formItemConfig:{
+          labelCol: {
+            xs: { span: 24 },
+            sm: { span: 8 },
+          },
+          wrapperCol: {
+            xs: { span: 24 },
+            sm: { span: 12 },
+          }
+        }
+      }
+    });
+    return (
+      <Card>
+        <BaseForm 
+          data={alignData} 
+          buttonLayout={{
+            wrapperCol: { span: 12, offset: 8 }
+          }}
+          onOk={action('clicked OK')} 
+          onReset={action('reseted')}
+        />
+      </Card>
+    )}
+  )
+  .add('inline', () => {
+    const alignData = data.map((item) => {
+      return {
+        ...item,
+        formItemConfig:{
+          labelCol: {
+            xs: { span: 24 },
+            sm: { span: 8 },
+          },
+          wrapperCol: {
+            xs: { span: 24 },
+            sm: { span: 12 },
+          }
+        }
+      }
+    });
+    return (
+      <Card>
+        <BaseForm 
+          data={alignData} 
+          onOk={action('clicked OK')} 
+          onReset={action('reseted')}
+          formConfig={{
+            layout: 'inline'
+          }}
+        />
+      </Card>
+    )}
   )
 
