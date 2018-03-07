@@ -237,10 +237,11 @@ BaseForm.defaultProps = {
   defaultSelectPlaceholder: '请选择',
   grid: {
     row: {
-      
+      gutter: 6
     },
     col: {
-
+      xs: 6,
+      sm: 8
     }
   },
   buttonData: [
