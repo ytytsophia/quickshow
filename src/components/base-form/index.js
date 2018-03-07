@@ -8,11 +8,11 @@ import {
   Form,
   Button
 } from 'antd';
-
 import _ from 'lodash';
 import classnames from 'classnames';
 import SmartSelect from '../smart-select';
 import SearchInput from '../search-input';
+import './style.css';
 
 const { RangePicker } = DatePicker;
 const { TextArea } = Input;
@@ -154,18 +154,19 @@ class BaseForm extends Component {
     return elements;
   }
 
-  createButtonElements(data) {
-    let elements = [];
-    data && data.forEach((item, i) => {
+  createButtonElements(data,buttonLayout) {
+    const buttons = data && data.map((item, i) => {
       let {
         ...otherProps
       } = item;
-      elements.push(
-        <Button key={i} {...otherProps}>{item.text}</Button>
-      );
+      return <Button key={i} {...otherProps}>{item.text}</Button>;
     });
 
-    return <div className='buttons-wrapper'>{elements}</div>;
+    return (
+      <div className='buttons-wrapper'>
+        {buttons}
+      </div>
+    );
   }
 
   handleSubmit = (e) => {
@@ -193,9 +194,9 @@ class BaseForm extends Component {
   }
 
   render() {
-    const {data, buttonData, className} = this.props;
+    const {data, buttonData, buttonLayout, className,buttonsClassName} = this.props;
     const formElements = this.createFormElements(data);
-    const buttonElements = this.createButtonElements(buttonData);
+    const buttonElements = this.createButtonElements(buttonData,buttonLayout);
 
     return (
       <Form 
@@ -206,9 +207,7 @@ class BaseForm extends Component {
         <div>
           {formElements}
           <div className={
-            classnames(
-              'form-buttons'
-            )
+            classnames('form-buttons',buttonsClassName)
           }>{buttonElements}</div>
         </div>
       </Form>
@@ -224,6 +223,7 @@ BaseForm.propTypes = {
   buttonData: PropTypes.array,
   defaultPlaceholder: PropTypes.string,
   defaultSelectPlaceholder: PropTypes.string,
+  buttonsClassName: PropTypes.string
 };
 BaseForm.defaultProps = {
   className: '',

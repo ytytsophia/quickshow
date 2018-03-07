@@ -22,7 +22,7 @@ class SmartSelect extends Component {
       const {children} = item;
       if(children && children.length){
         return (
-          <OptGroup label={item.label}>
+          <OptGroup label={item.label} key={index}>
             {children.map((child,i) => this.createOption(child,i))}
           </OptGroup>
         );

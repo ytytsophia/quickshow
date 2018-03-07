@@ -1,22 +1,24 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
 import BaseForm from '../../components/base-form';
 import moment from 'moment';
+import {Card} from 'antd';
 
 const data = [
   {
-    'id': 'driverName',
-    'placeholder': '司机姓名',
+    'id': 'name',
+    'placeholder': '姓名',
     'type': 'text'
   },
   {
     'id': 'idCard',
-    'placeholder': '司机身份证号',
+    'placeholder': '身份证号',
     'type': 'text'
   },
   {
     'id': 'phone',
-    'placeholder': '司机手机号',
+    'placeholder': '手机号',
     'type': 'text',
     defaultValue: '15618971727'
   },
@@ -66,7 +68,7 @@ const data = [
   },
   {
     'id': 'tagIds',
-    'placeholder': '司机标签',
+    'placeholder': '标签',
     'type': 'select',
     'multi': true,
     'showSearch': true,
@@ -75,8 +77,8 @@ const data = [
       value: 'tag1'
     }]
   },{
-    id: 'allocateTime',
-    placeholder: ['分发时间段'],
+    id: 'time',
+    placeholder: ['时间段'],
     type: 'date-range',
     format: 'YYYY-MM-DD HH:mm',
     showTime: { 
@@ -85,5 +87,29 @@ const data = [
     value: [moment().subtract(30, 'days'),moment()]
   }
 ];
+const buttonData = [];
+const pageData = {
+  data,
+  buttonData
+}
 storiesOf('BaseForm', module)
-  .add('default layout', () => <BaseForm data={data}/>);
+  .add('no-button', () => 
+    <BaseForm {...pageData}/>
+  )
+  .add('default', () => 
+    <BaseForm 
+      data={data} 
+      onOk={action('clicked OK')} 
+      onReset={action('reseted')}
+    />
+  )
+  .add('wrapped with card', () => 
+    <Card>
+      <BaseForm 
+        data={data} 
+        onOk={action('clicked OK')} 
+        onReset={action('reseted')}
+    />
+    </Card>
+  )
+

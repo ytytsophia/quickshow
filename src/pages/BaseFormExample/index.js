@@ -12,18 +12,18 @@ class BaseFormExample extends Component {
   render(){
     const data = [
       {
-        'id': 'driverName',
-        'placeholder': '司机姓名',
+        'id': 'name',
+        'placeholder': '姓名',
         'type': 'text'
       },
       {
         'id': 'idCard',
-        'placeholder': '司机身份证号',
+        'placeholder': '身份证号',
         'type': 'text'
       },
       {
         'id': 'phone',
-        'placeholder': '司机手机号',
+        'placeholder': '手机号',
         'type': 'text',
         defaultValue: '15618971727'
       },
@@ -73,7 +73,7 @@ class BaseFormExample extends Component {
       },
       {
         'id': 'tagIds',
-        'placeholder': '司机标签',
+        'placeholder': '标签',
         'type': 'select',
         'multi': true,
         'showSearch': true,
@@ -83,7 +83,7 @@ class BaseFormExample extends Component {
         }]
       },{
         id: 'allocateTime',
-        placeholder: ['分发时间段'],
+        placeholder: ['时间段'],
         type: 'date-range',
         format: 'YYYY-MM-DD HH:mm',
         showTime: { 

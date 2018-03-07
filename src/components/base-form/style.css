@@ -4,3 +4,6 @@
 .no-display{
 	display: none;
 }
+.buttons-wrapper .ant-btn{
+	margin-right: 10px
+}
